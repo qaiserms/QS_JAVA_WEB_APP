@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.beautyofplanes.dto.Plane" table="planes" catalog="beautyofplanes">
+        <id name="guid" type="java.lang.Integer">
+            <column name="PLANE_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="255" not-null="false" unique="false" />
+        </property>
+         <property name="genus" type="string">
+            <column name="GENUS" length="255" not-null="false" unique="false" />
+        </property>
+        <property name="manufaturer" type="string">
+            <column name="MANUFACTURER" length="255" not-null="false" unique="false" />
+        </property>
+        <property name="engines" type="string">
+            <column name="ENGINES" length="255" not-null="false" unique="false" />
+        </property>        
+              
+        <property name="capacity" type="string">
+            <column name="CAPACITY" length="255" not-null="false" unique="false" />
+        </property>      
+    </class>
+</hibernate-mapping>

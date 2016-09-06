@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en"
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Beauty of Planes.com</title>
+</h:head>
+<h:body>
+
+<h1>Welcome to PlantPlaces.com!</h1>
+<em><h:outputLabel value="#{applicationInfo.slogan}"/></em>
+
+<h2>Plant Results for <h:outputLabel value="#{plane.name}"/></h2>
+<p:dataTable id="showPlants" var="plantResult" value="#{searchPlanes.planes}" selectionMode="single"  rowKey="#{plantResult.guid}">
+	<p:ajax event="rowSelect" listener="#{searchPlanes.onRowSelect}"  />
+	<p:column headerText="ID">
+		<h:outputText value="#{planeResult.guid}"/>
+	</p:column>
+	<p:column headerText="Genus">
+		<h:outputText value="#{planeResult.manufacturer}"/>
+	</p:column>
+	<p:column headerText="Species">
+		<h:outputText value="#{planeResult.engines}"/>
+	</p:column>
+	<p:column headerText="Common">
+		<h:outputText value="#{plansResult.capacity}"/>
+	</p:column>
+	<f:facet name="footer">
+		<p:commandButton process="showPlanes" value="View" action="#{searchPlanes.showDetails}"/>
+	</f:facet>
+</p:dataTable>
+
+
+<h:form>
+<h:inputText value="#{plane.name}" />
+<h:commandButton value="Submit" action="#{searchPlanes.execute}" />
+
+</h:form>
+
+
+<h:link value="Contact Us" outcome="contactUs"/>
+
+</h:body>
+
+</html>
